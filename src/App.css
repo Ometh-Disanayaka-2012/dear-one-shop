@@ -144,10 +144,13 @@ body {
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(rgba(139, 115, 85, 0.1), rgba(139, 115, 85, 0.05)),
-              #f5ede4;
+  /* background: linear-gradient(rgba(139, 115, 85, 0.1), rgba(139, 115, 85, 0.05)),
+              #f5ede4; */
   padding: 8rem 2rem;
   text-align: center;
+  background-image: url('/Background.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .hero-content {
@@ -160,14 +163,28 @@ body {
   font-size: 3.5rem;
   font-weight: 400;
   color: #2c2c2c;
+  /* color: white; */
   margin-bottom: 1rem;
   line-height: 1.2;
+
+  color: #FFFFFF; /* Pure white */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
+  /* Or for even stronger contrast: */
+  text-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.8),
+    0 4px 8px rgba(0, 0, 0, 0.6);
 }
 
 .hero-subtitle {
   font-size: 1.25rem;
   color: #666;
   margin-bottom: 2.5rem;
+  color: #FFFFFF; /* Pure white */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
+  /* Or for even stronger contrast: */
+  text-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.8),
+    0 4px 8px rgba(0, 0, 0, 0.6);
 }
 
 .cta-btn {

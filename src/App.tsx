@@ -6,7 +6,7 @@ import AboutSection from './components/AboutSection';
 import Footer from './components/Footer';
 import { products } from './data/products';
 import type { Product } from './types';
-import Navbar from './components/NavBar';
+import Navbar from './components/Navbar';
 
 function App() {
   const [cart, setCart] = useState<Product[]>([]);
