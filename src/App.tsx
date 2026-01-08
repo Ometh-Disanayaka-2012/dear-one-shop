@@ -8,6 +8,8 @@ import ReviewSection from './components/ReviewSection';
 import { products } from './data/products';
 import type { Product } from './types';
 import Navbar from './components/Navbar';
+import { Contact } from 'lucide-react';
+import ContactSection from './components/ContactSection';
 
 function App() {
   const [cart, setCart] = useState<Product[]>([]);
@@ -30,6 +32,7 @@ function App() {
       />
       <AboutSection />
       <ReviewSection />
+      <ContactSection />
       <Footer />
     </div>
   );
