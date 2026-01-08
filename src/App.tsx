@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import FeaturedProducts from './components/FeaturedProducts';
 import AboutSection from './components/AboutSection';
 import Footer from './components/Footer';
+import ReviewSection from './components/ReviewSection';
 import { products } from './data/products';
 import type { Product } from './types';
 import Navbar from './components/Navbar';
@@ -28,6 +29,7 @@ function App() {
         onAddToCart={handleAddToCart}
       />
       <AboutSection />
+      <ReviewSection />
       <Footer />
     </div>
   );
