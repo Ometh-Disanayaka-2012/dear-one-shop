@@ -9,7 +9,7 @@ interface FeaturedProductsProps {
 
 const FeaturedProducts: React.FC<FeaturedProductsProps> = ({ products, onAddToCart }) => {
   return (
-    <section className="featured-section">
+    <section id='featured' className="featured-section">
       <div className="container">
         <h2 className="section-title">Our Bestsellers</h2>
         <div className="product-grid">

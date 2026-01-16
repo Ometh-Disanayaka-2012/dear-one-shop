@@ -66,7 +66,7 @@ const ReviewSection = () => {
   };
 
   return (
-    <div className="review-section">
+    <div id='review' className="review-section">
       <div style={{ maxWidth: '72rem', margin: '0 auto' }}>
         {/* Section Header */}
         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>

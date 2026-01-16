@@ -7,6 +7,15 @@ interface ProductCardProps {
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart }) => {
+  const handleAddToCart = () => {
+    if (onAddToCart) {
+      onAddToCart(product);
+      console.log('Added to cart:', product.name); // For debugging
+    } else {
+      console.log('onAddToCart function not provided');
+    }
+  };
+
   return (
     <div className="product-card">
       <div className="product-image">
@@ -17,7 +26,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart }) => {
       <p className="price">${product.price.toFixed(2)}</p>
       <button 
         className="add-to-cart"
-        onClick={() => onAddToCart && onAddToCart(product)}
+        onClick={handleAddToCart}
       >
         Add to Cart
       </button>

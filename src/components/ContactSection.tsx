@@ -27,7 +27,7 @@ const ContactSection = () => {
   };
 
   return (
-    <div className="contact-section w-full bg-gradient-to-b from-white via-stone-50 to-amber-50 py-20 px-4">
+    <div id='contact' className="contact-section w-full bg-gradient-to-b from-white via-stone-50 to-amber-50 py-20 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">

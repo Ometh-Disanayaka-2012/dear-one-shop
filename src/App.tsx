@@ -10,13 +10,24 @@ import type { Product } from './types';
 import Navbar from './components/Navbar';
 import { Contact } from 'lucide-react';
 import ContactSection from './components/ContactSection';
+import Cart from './components/Cart'; // Add this
 
 function App() {
   const [cart, setCart] = useState<Product[]>([]);
+  const [isCartOpen, setIsCartOpen] = useState(false); // Add this
 
   const handleAddToCart = (product: Product) => {
     setCart([...cart, product]);
     alert(`${product.name} added to cart!`);
+  };
+
+  const handleRemoveFromCart = (productId: number) => {
+    const index = cart.findIndex(item => item.id === productId);
+    if (index > -1) {
+      const newCart = [...cart];
+      newCart.splice(index, 1);
+      setCart(newCart);
+    }
   };
 
   // Show first 4 products as featured
@@ -24,7 +35,10 @@ function App() {
 
   return (
     <div className="app">
-      <Navbar />
+      <Navbar 
+        cartCount={cart.length} 
+        onCartClick={() => setIsCartOpen(true)} 
+      />
       <Hero />
       <FeaturedProducts 
         products={featuredProducts} 
@@ -34,6 +48,14 @@ function App() {
       <ReviewSection />
       <ContactSection />
       <Footer />
+      
+      {/* Cart Modal */}
+      <Cart 
+        isOpen={isCartOpen}
+        onClose={() => setIsCartOpen(false)}
+        cart={cart}
+        onRemoveFromCart={handleRemoveFromCart}
+      />
     </div>
   );
 }

@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
 import type { NavItem } from '../types';
+import { ShoppingCart } from 'lucide-react';
 
-const Navbar: React.FC = () => {
+interface NavbarProps {
+  cartCount?: number;
+  onCartClick?: () => void;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ cartCount = 0, onCartClick }) => {
   const [isShopOpen, setIsShopOpen] = useState(false);
   const [isBlingOpen, setIsBlingOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -24,32 +30,18 @@ const Navbar: React.FC = () => {
     },
     { 
       label: 'Review', 
-      href: '#' 
-    },
-    { 
-      label: 'Poicay', 
-      href: '#' 
+      href: '#review' 
     },
   ];
 
   const rightNav: NavItem[] = [
     { 
       label: 'Products', 
-      href: '#' 
-    },
-    { 
-      label: 'Bling', 
-      href: '#', 
-      hasDropdown: true,
-      dropdownItems: [
-        { label: 'Jewelry', href: '#jewelry' },
-        { label: 'Accessories', href: '#accessories' },
-        { label: 'Collections', href: '#collections' }
-      ]
+      href: '#featured' 
     },
     { 
       label: 'Contact us', 
-      href: '#' 
+      href: '#contact' 
     },
   ];
 
@@ -121,12 +113,34 @@ const Navbar: React.FC = () => {
               <path d="m21 21-4.35-4.35"/>
             </svg>
           </button>
-          <button className="icon-btn" aria-label="Cart">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M9 2L6 6H3L6 20H18L21 6H18L15 2H9Z"/>
-              <circle cx="9" cy="20" r="1"/>
-              <circle cx="15" cy="20" r="1"/>
-            </svg>
+          
+          {/* Updated Cart Button with Count Badge */}
+          <button 
+            className="icon-btn" 
+            aria-label="Cart"
+            onClick={onCartClick}
+            style={{ position: 'relative' }}
+          >
+            <ShoppingCart width={20} height={20} />
+            {cartCount > 0 && (
+              <span style={{
+                position: 'absolute',
+                top: '-8px',
+                right: '-8px',
+                background: '#dc2626',
+                color: 'white',
+                borderRadius: '50%',
+                width: '20px',
+                height: '20px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '12px',
+                fontWeight: 'bold'
+              }}>
+                {cartCount}
+              </span>
+            )}
           </button>
         </div>
 
